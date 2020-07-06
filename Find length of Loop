@@ -1,0 +1,58 @@
+/* Create a loop for testing */
+        // srand(time(NULL));
+        int c;
+        cin>>c;
+        if(c>0){
+            //c=c-1;
+            temp=head;
+            t = head;
+            while(t->next)t=t->next;
+            while(c--)temp=temp->next;
+            t->next=temp;
+            // s->next=temp;
+        }
+        //printList(head);
+        cout<<countNodesinLoop(head)<<endl;
+	}
+    return 0;
+}
+// } Driver Code Ends
+/*
+struct Node {
+  int data;
+  struct Node *next;
+  Node(int x) {
+    data = x;
+    next = NULL;
+  }
+};
+*/
+// Your task is to complete the function this function
+// function should return the size of the loop
+int countNodesinLoop(struct Node *head)
+{
+     // Code here
+     int count =0;
+     if(head==NULL||head->next==NULL)
+     {
+         return 0 ;
+     }
+     Node *slow =head,*fast=head;
+     
+     while(fast !=NULL && fast->next!=NULL)//check if there is loop or not
+     {
+         slow=slow->next;
+         fast=fast->next->next;
+         if(slow==fast) //loop exists
+         {
+             Node *temp=slow;
+             while(temp->next!=fast)
+             {
+                 count++;
+                 temp=temp->next;
+             }
+             return count+1;
+         }
+     }
+     return count;
+}

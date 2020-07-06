@@ -1,0 +1,42 @@
+#include<string.h>
+#include <stdio.h>
+#define MAX 2000
+void reverse(char *str,int n)
+{
+    int last_pos=n,i,j;
+    for(i=last_pos;i>=0;i--)
+    {
+        if(str[i]=='.' || i==0)
+        {
+            if(i==0)
+            {
+                for(j=i;j<last_pos;j++)
+                {
+                    printf("%c",str[j]);
+                }
+            }
+            else
+            {
+                for(j=i+1;j<last_pos;j++)
+                
+                    printf("%c",str[j]);
+                    printf(".");
+                last_pos = i;
+                
+            }
+        }
+    }
+}
+int main() {
+	//code
+	char str[MAX];
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    scanf("%s",str);
+	    reverse(str,strlen(str));
+	    printf("\n");
+	}
+	return 0;
+}

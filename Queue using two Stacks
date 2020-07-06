@@ -1,0 +1,31 @@
+void StackQueue :: push(int x)
+{
+    s1.push(x);// Your Code
+}
+
+/*The method pop which return the element poped out of the queue*/
+int StackQueue :: pop()
+{
+    if(s1.empty())
+        {
+            return -1;
+        }
+        else
+        {
+            while(!s1.empty())
+            {
+             int x=s1.top();
+                s1.pop();
+                s2.push(x);
+            }
+           int x1=s2.top();
+           s2.pop();
+           while(!s2.empty())
+           {
+                int x=s2.top();
+                s2.pop();
+                s1.push(x);
+           }
+        return x1;
+        }
+}

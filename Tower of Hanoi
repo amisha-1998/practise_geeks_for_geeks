@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int k;
+void toh(int n,int a,int b,int c)
+{
+    if(n>0)
+    {
+        toh(n-1,a,c,b);
+        cout<<"move disk "<<n<<" from rod "<<a<<" to rod "<<c<<endl;
+        toh(n-1,b,a,c);
+        k++;
+    }
+}
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int a=1,b=2,c=3,n;
+	    cin>>n;
+	    toh(n,a,b,c);
+	    cout<<k<<endl;
+	    k=0;
+	}
+	return 0;
+}
